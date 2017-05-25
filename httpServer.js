@@ -8,7 +8,7 @@ var requestListener = function(req, res){
     fs.readFile('pets.json', 'utf8', function (err,data){
       if(err){
         throw err;
-      }else if (JSON.parse(data)[urlArr[1]]){
+      } else if (JSON.parse(data)[urlArr[1]]){
         var pets = JSON.parse(data);
         var pet = pets[urlArr[1]];
         var petJSON = JSON.stringify(pet);
@@ -31,15 +31,7 @@ var requestListener = function(req, res){
       }
     });
   }
+};
 
-
-  // http.get('/pets', function(res){
-  //   console.log(res)
-  // });
-
-}
-
-var server =  http.createServer(requestListener)
+var server =  http.createServer(requestListener);
 server.listen(3000);
-
-module.exports = server;
