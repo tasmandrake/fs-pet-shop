@@ -9,8 +9,7 @@ app.use((req, res) => {
   res.status(404).send('Not Found');
 });
 
-app.use((err, req ,res) => {
-  console.error(err.stack);
+app.use((err, req, res) => {
   res.header('Content-Type', 'text/plain');
   res.status(500).send('Internal Server Error');
 });

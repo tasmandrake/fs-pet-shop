@@ -69,7 +69,6 @@ router.patch('/:id', (req, res) => {
     const pets = JSON.parse(data);
     const updatePet = req.body;
     if (Number.isInteger(updatePet.age) || updatePet.kind || updatePet.name) {
-      console.log(pets);
       const oldPet = pets[id];
       const newPet = {
         age: updatePet.age || oldPet.age,
@@ -107,7 +106,6 @@ router.delete('/:id', (req, res) => {
       if (error) {
         throw error;
       }
-      console.log();
       res.header('Content-Type', 'application/json');
       res.send(deletedPet);
     });
