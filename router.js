@@ -3,7 +3,7 @@ const fs = require('fs');
 const bodyParser = require('body-parser');
 
 const router = express.Router();
-router.use(bodyParser.urlencoded());
+router.use(bodyParser.urlencoded({ extended: false }));
 router.use(bodyParser.json());
 
 router.get('/:id', (req, res) => {
@@ -19,8 +19,7 @@ router.get('/:id', (req, res) => {
       res.send(pet);
     } else {
       res.header('Content-Type', 'text/plain');
-      res.status(404);
-      res.send('Not Found');
+      res.status(404).send('Not Found');
     }
   });
 });
@@ -54,8 +53,7 @@ router.post('/', (req, res) => {
       });
     } else {
       res.header('Content-Type', 'text/plain');
-      res.status(400);
-      res.send('Bad Request');
+      res.status(400).send('Bad Request');
     }
   });
 });
@@ -86,8 +84,7 @@ router.patch('/:id', (req, res) => {
       });
     } else {
       res.header('Content-Type', 'text/plain');
-      res.status(400);
-      res.send('Bad Request');
+      res.status(400).send('Bad Request');
     }
   });
 });
