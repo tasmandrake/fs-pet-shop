@@ -18,12 +18,14 @@ if (!cmd) {
     if (index) {
       if (JSON.parse(data)[index]) {
         const pets = JSON.parse(data)[index];
+        console.log(pets)
       } else {
         console.error('Usage: node pets.js read INDEX');
         process.exit(1);
       }
     } else {
       const pets = JSON.parse(data);
+      console.log(pets)
     }
   });
 } else if (cmd === 'create') {
@@ -47,6 +49,7 @@ if (!cmd) {
       if (writeError) {
         throw writeError;
       }
+      console.log(newPet);
     });
   });
 } else if (cmd === 'update') {
@@ -70,6 +73,7 @@ if (!cmd) {
       if (writeError) {
         throw writeError;
       }
+      console.log(updatePet);
     });
   });
 } else if (cmd === 'destroy') {
@@ -90,6 +94,8 @@ if (!cmd) {
       if (writeError) {
         throw writeError;
       }
+      console.log(deletedPet);
+
     });
   });
 }
